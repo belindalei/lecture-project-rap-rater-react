@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Rapper from './Rapper';
 
 
 const rapperList = [{name: "Drake", rating: 0, sadImage:"https://rockstonesessions.com/wp-content/uploads/2016/02/Drake.jpg", happyImage: "https://cdn.mos.cms.futurecdn.net/jnjsyNvwaSGUUZP7CnF68R.jpg"},
@@ -12,33 +12,12 @@ const rapperList = [{name: "Drake", rating: 0, sadImage:"https://rockstonesessio
 {name: "Riff Raff", rating: 0, happyImage:"https://consequenceofsound.files.wordpress.com/2018/06/riff-raff-rape-blunt-canceled-tour.png?w=807", sadImage: "http://hiphopnewssource.com/wp-content/uploads/2014/12/riffraff.png" }
 ]
 
-
-
-
-class Rapper extends Component{
-  render(){
-    // console.log(this.props.rapper.);
-    return (<div >
-    <p>{this.props.rapper.name}</p>
-
-    <img id="rapper pic" alt="" class="rapperPic" src={this.props.highest === "yes" ? this.props.rapper.happyImage:this.props.rapper.sadImage}></img>
-    <button class="upButton">upvote</button>
-    <button class="downButton">downvote</button>
-    </div>
-    )
-  }
-}
-
-
-
 class App extends Component {
   constructor(props){
     super(props)
     let sortedList = rapperList.sort((rapper1, rapper2) => {
       return rapper2.rating - rapper1.rating
     })
-    let image = sortedList[0].name === this.props.name ? this.happyImage:this.sadImage
-
     this.state = {
       rapperList: sortedList,
     }
@@ -46,8 +25,8 @@ class App extends Component {
 
   render() {
     let rappers = this.state.rapperList.map(rapper => {
-
-      return <Rapper highest="no" rapper={rapper}/>
+    let image = this.state.rapperList[0].name === rapper.name ? rapper.happyImage:rapper.sadImage
+      return <Rapper key={rapper.name} image={image} rapper={rapper}/>
     })
     return (
       <div className="App">
