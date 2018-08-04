@@ -4,7 +4,7 @@ import Button from "./Button"
 class Rapper extends Component{
 
   onClick(e) {
-
+    log
   }
 
   render(){
