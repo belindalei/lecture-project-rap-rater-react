@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import Button from "./Button"
 
 class Rapper extends Component{
-  constructor(props){
-    super(props)
-  }
-
 
   render(){
     return (<div >
