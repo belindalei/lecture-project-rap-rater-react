@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Rapper from './Rapper';
+import Rapper from './components/Rapper';
 import rapperList from './rapperList';
 
 class App extends Component {
