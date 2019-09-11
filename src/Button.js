@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Button extends Component {
-
-  render(){
-    let button = this.props.direction === "up" ? <button id={this.props.rapper} onClick={this.props.onClick} className="upButton">upvote</button>:<button id={this.props.rapper} onClick={this.props.onClick} className="downButton">downvote</button>
-    return (<div>{button}</div>)
-  }
+const Button = (props) => {
+  let button = props.direction === "up" ? <button id={props.rapperName} onClick={props.onClick} className="upButton">upvote</button> : <button id={props.rapperName} onClick={props.onClick} className="downButton">downvote</button>
+  return (
+    <div>
+      {button}
+    </div>
+  )
 }
 
 export default Button;
